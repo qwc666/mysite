@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linki</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="mojaStronaLogo.png">
+    <script>
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            toast.textContent = msg;
+            toast.classList.add("show");
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 1500);
+        }
+
+        function copyText(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text)
+                    .then(() => showToast("Skopiowano!"))
+                    .catch(() => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+
+            try {
+                document.execCommand("copy");
+                showToast("Skopiowano!");
+            } catch (e) {
+                showToast("Błąd kopiowania!");
+                console.error(e);
+            }
+
+            document.body.removeChild(textarea);
+        }
+
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</head>
+
+<body class="stronaLinki">
+
+    <div class="nawigacja">
+        <a href="index.html"><img src="houseIcon.png" alt="home"></a>
+        <a href="znaczenieUtworow.html"><img src="musicIcon.png" alt="music"></a>
+        <a href="analyzeSpotifyData.html"><img src="spotifyIcon.png" alt="spotifyIcon"></a>
+    </div>
+
+    <div id="toast"></div>
+
+    <div class="blok">
+        <h1>STRONY</h1>
+    </div>
+
+    <div class="seperate"></div>
+
+    <div class="blok">
+        <h2>INF:</h2>
+        <ul>
+            <li><button class="hyperlink" onclick="openLink('https://onlinephp.io/')">PHP online compiler</button></li>
+            <li><button class="hyperlink" onclick="openLink('https://zse.rzeszow.pl/ubuntu/lista-cwiczen')">Linux Ubuntu
+                    - lista ćwiczeń</button></li>
+            <li><button class="hyperlink"
+                    onclick="openLink('https://egzamin-informatyk.pl/inf02-inf03-ee08-ee09-testy-arkusze-praktyczne/')">egzamin-informatyk.pl
+                    inf02-inf03-ee08-ee09-testy-arkusze-praktyczne/</button></li>
+            <li><button class="hyperlink"
+                    onclick="openLink('https://www.google.com/search?q=windows+11+refreshes+when+shift+right+clicking+on+desktop&oq=windows+11+refreshes+when+shift+right+clicking+on+desktop&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIHCAMQABjvBTIHCAQQABjvBTIHCAUQABjvBdIBBzc3NGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8')">windows
+                    11 refreshes when shift right clicking on desktop: search</button></li>
+            <li><button class="hyperlink"
+                    onclick="openLink('https://padlet.com/marcinpiepik/html5-uivaxnssnelvgwbb')">Padlety Piepika z
+                    HTML</button></li>
+            <li><button class="hyperlink"
+                    onclick="openLink('https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button')">HTML
+                    button options help</button></li>
+            <li><button class="hyperlink"
+                    onclick="openLink('https://padlet.com/marcinpiepik/inf-03-jn1rvdrow06idmlj')">Padlet Piepika z
+                    arkuszów inf03</button></li>
+            <li><button class="hyperlink"
+                    onclick="openLink('https://padlet.com/marcinpiepik/php-bazy-danych-f28ep5j7j0qaia06')">Padlet
+                    Piepika z php'a</button></li>
+            <li><button class="hyperlink" onclick="openLink('https://www.w3schools.com/js/default.asp')">w3schools
+                    js</button></li>
+            <li><button class="hyperlink" onclick="openLink('https://www.w3schools.com/js/js_strings.asp')">w3schools js
+                    strings</button></li>
+            <li><button class="hyperlink" onclick="openLink('https://ee-informatyk.pl/')">arkusze INF02, INF03, INF04 -
+                    odpowiedzi</button></li>
+        </ul>
+    </div>
+
+    <div class="seperate"></div>
+
+    <div class="blok">
+        <h2>AI:</h2>
+        <ul>
+            <li><button class="hyperlink" onclick="openLink('https://deepai.org/')">Deep.ai</button></li>
+            <li><button class="hyperlink" onclick="openLink('https://www.perplexity.ai/')">Perplexity.ai</button></li>
+        </ul>
+    </div>
+
+    <div class="seperate"></div>
+
+    <div class="blok">
+        <h2>Games:</h2>
+        <ul>
+            <li><button class="hyperlink" onclick="openLink('https://neal.fun/')">neal fun</button></li>
+
+            <li>
+                <button class="copy"
+                    onclick="copyText('javascript:(function()%7Blet%20s%3Ddocument.querySelector(%22main%20svg%22).getBoundingClientRect()%2Ccx%3Ds.width%2F2%2Bs.x%2Ccy%3Ds.height%2F2%2Bs.y%2Cr%3Ds.width%2F3%2Cd%3Ddocument.querySelector(%22main%20div%22)%2Ca%3D0%3Bfor(let%20e%3D0%3Be%3C50%3Be%2B%2B)%7Ba%2B%3DMath.acos(1-Math.pow(60%2Fr%2C2)%2F2)%3Blet%20t%3DMath.round(cx%2Br*Math.cos(a))%2Cn%3DMath.round(cy%2Br*Math.sin(a))%3B0%3D%3De%26%26d.dispatchEvent(new%20MouseEvent(%22mousedown%22%2C%7BclientX%3At%2CclientY%3An%7D))%2Cd.dispatchEvent(new%20MouseEvent(%22mousemove%22%2C%7BclientX%3At%2CclientY%3An%7D))%3Bd.dispatchEvent(new%20MouseEvent(%22mouseup%22%2C%7BclientX%3At%2CclientY%3An%7D))%7D)()')">
+                    <img src="iconCopy.png" alt="iconCopy" />
+                    <div class="btn-text">
+                        <b>https://neal.fun/perfect-circle/ script for ~ 99,9 %</b>
+                        <span>1. Click this box to copy script</span>
+                        <span>2. Paste into a bookmark adress</span>
+                        <span>3. Click the bookmark on https://neal.fun/perfect-circle/ for ~ 99,9 %</span>
+                    </div>
+                </button>
+            </li>
+
+            <li><button class="hyperlink" onclick="openLink('https://littlealchemy.com/')">Little alchemy</button></li>
+            <li><button class="hyperlink" onclick="openLink('https://www.gambledude.com/#S')">Little alchemy
+                    hint#1</button></li>
+            <li><button class="hyperlink" onclick="openLink('https://littlealchemy.com/hints/')">Little alchemy hints
+                    #2</button></li>
+            <li><button class="hyperlink"
+                    onclick="openLink('https://www.crazygames.com/game/ragdoll-archers')">ragdoll-archers</button></li>
+            <li><button class="hyperlink"
+                    onclick="openLink('https://oskarstalberg.com/Townscaper/#HAI5kA2')">Townscaper</button></li>
+            <li><button class="hyperlink"
+                    onclick="openLink('https://www.crazygames.com/game/8-ball-pool-billiards-multiplayer')">8 ball
+                    pool</button></li>
+            <li><button class="hyperlink" onclick="openLink('https://totaljerkface.com/happy_wheels.tjf')">Happy
+                    wheels</button></li>
+        </ul>
+    </div>
+
+    <div class="seperate"></div>
+
+    <div class="blok">
+        <h2>Other</h2>
+        <ul>
+            <li><button class="hyperlink" onclick="openLink('https://draw.ddns.net/')">draw.ddns</button></li>
+            <li><button class="hyperlink"
+                    onclick="openLink('https://discoverquickly.com')">discoverquicklyspotify</button></li>
+
+            <li>
+                <button class="copy" onclick="copyText('How to Migrate Windows to Another Drive')">
+                    <img src="iconCopy.png" alt="iconCopy" />
+                    <div class="btn-text">How to Migrate Windows to Another Drive</div>
+                </button>
+            </li>
+
+            <li><button class="hyperlink" onclick="openLink('https://me.meshcapade.com/editor')">Human model
+                    editor</button></li>
+
+            <li>
+                <button class="copy" onclick="copyText('Get-CimInstance Win32_WinSat')">
+                    <img src="iconCopy.png" alt="iconCopy" />
+                    <div class="btn-text">
+                        Get-CimInstance Win32_WinSat
+                        <span>(PowerShell PC score)</span>
+                    </div>
+                </button>
+            </li>
+
+            <li><button class="hyperlink" onclick="openLink('https://www.music-map.com')">Music map</button></li>
+
+            <li>
+                <button class="copy" onclick="copyText('Luciano Pavarotti - La Donna È Mobile (Rigoletto)')">
+                    <img src="iconCopy.png" alt="iconCopy" />
+                    <div class="btn-text">Luciano Pavarotti - La Donna È Mobile</div>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
